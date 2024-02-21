@@ -2,6 +2,8 @@
 <projectConfiguration>
     <configVersion>2</configVersion>
     <relativeTo>WORKSPACE</relativeTo>
+    <referencedLibrary type="PYTHON" name="SortFunction" path="NopCommerce/libraries/SortFunction.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Python39/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>

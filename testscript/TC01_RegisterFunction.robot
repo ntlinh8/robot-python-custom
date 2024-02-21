@@ -17,5 +17,17 @@ TC01 - Register with empty data
     Wait Until Page Ready
     Verify Sort Function Properly Work    Name: A to Z
 
+    Select "${Notebook_dropdown_SortBy}" ComboBox By Label "Name: Z to A"
+    Wait Until Page Ready
+    Verify Sort Function Properly Work    Name: Z to A
+
+    Select "${Notebook_dropdown_SortBy}" ComboBox By Label "Price: Low to High"
+    Wait Until Page Ready
+    Verify Sort Function Properly Work    Price: Low to High
+
+    Select "${Notebook_dropdown_SortBy}" ComboBox By Label "Price: High to Low"
+    Wait Until Page Ready
+    Verify Sort Function Properly Work    Price: High to Low
+
 
 

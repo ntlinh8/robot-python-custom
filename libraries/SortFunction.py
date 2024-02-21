@@ -10,29 +10,30 @@ class SortFunction:
 
     @keyword
     def verify_sort_function_properly_work(self, sort_option: str):
-        if sort_option == 'Name: A to Z':
-            actual_title = []
+        actual_list = []
+        if sort_option.startswith("Name"):
             element_list: list = self.selenium_instance.get_webelements("//h2[@class='product-title']/a")
             for element in element_list:
                 text = element.text
-                actual_title.append(text)
-            expected_title: list = actual_title.copy()
-            expected_title.sort()
-            if actual_title == expected_title:
+                actual_list.append(text)
+            expected_list: list = actual_list.copy()
+            expected_list.sort()
+            if "Z to A" in sort_option:
+                expected_list.sort(reverse=True)
+            if actual_list == expected_list:
                 return
-        elif sort_option == 'Name: Z to A':
-            actual_title = []
-            element_list: list = self.selenium_instance.get_webelements("//h2[@class='product-title']/a")
+        elif sort_option.startswith("Price"):
+            element_list: list = self.selenium_instance.get_webelements("//div[@class='prices']/span")
             for element in element_list:
-                text = element.text
-                actual_title.append(text)
-            expected_title: list = actual_title.copy()
-            expected_title.sort(reverse=true)
-            if actual_title == expected_title:
+                text: str = element.text
+                text = text.replace("$", "").replace(",", "")
+                value: float = float(text)
+                actual_list.append(value)
+            expected_list: list = actual_list.copy()
+            expected_list.sort()
+            if "High to Low" in sort_option:
+                expected_list.sort(reverse=True)
+            if actual_list == expected_list:
                 return
-        elif sort_option == 'Price: Low to High':
-            pass
-        elif sort_option == 'Price: High to Low':
-            pass
         else:
             raise Exception("Sorry, this value cannot support")
