@@ -53,15 +53,15 @@ Open New Tab With URL
     Execute Javascript    window.open()
     ${handle}=    Switch Window    NEW
     Go To    ${url}
-    [Return]    ${handle}
+    RETURN   ${handle}
     
 Get Window Height
     ${height}=    Execute Javascript    return screen.height
-    [Return]    ${height}
+    RETURN    ${height}
     
 Get Window Width
     ${width}=    Execute Javascript    return screen.width
-    [Return]    ${width}
+    RETURN    ${width}
 
 Close The Current Tab
     Execute Javascript    window.close()
@@ -123,31 +123,31 @@ Clear And Press Text In Dynamic Element
 Get Text In Element "${xpath}"
     Wait Until Element Is Visible      ${xpath} 
     ${ret}=    Get Text    ${xpath}
-    [Return]    ${ret}
+    RETURN    ${ret}
 
 Get Text From Dynamic Locator
     [Arguments]       ${xpath}     @{ARGS}
     ${xpath} =    Generate Dynamic Locator    ${xpath}   @{ARGS}
     Wait Until Element Is Visible      ${xpath}
     ${ret}=    Get Text    ${xpath}
-    [Return]    ${ret}
+    RETURN    ${ret}
     
 Get Value In Element "${xpath}"
     Wait Until Element Is Visible      ${xpath} 
     ${ret}=    Get Value    ${xpath}
-    [Return]    ${ret}
+    RETURN    ${ret}
     
 Get Attribute "${attribute}" In Element "${xpath}"
     # Wait Until Element Is Visible      ${xpath} 
     ${ret}=    Get Element Attribute    ${xpath}    ${attribute}
-    [Return]    ${ret}
+    RETURN    ${ret}
 
 Get Value Attribute In Dynamic Element
     [Arguments]        ${attribute}     ${xpath}     @{ARGS}
     ${xpath} =    Generate Dynamic Locator    ${xpath}   @{ARGS}
     # Wait Until Element Is Visible      ${xpath}
     ${ret}=    Get Element Attribute    ${xpath}    ${attribute}
-    [Return]    ${ret}
+    RETURN    ${ret}
     
 #Scroll
 Scroll Up To The Top
@@ -220,7 +220,7 @@ Click Coodinates From A Dynamic Element
 Generate Dynamic Locator 
     [Arguments]    ${xpath}    @{ARGS} 
     ${xpath}=     Format String    ${xpath}    @{ARGS}
-    [Return]    ${xpath}
+    RETURN    ${xpath}
 
 #WAIT
 Wait Until Page Source Contain "${text}"
@@ -336,7 +336,7 @@ Get Alert
     ${ret}    Run Keyword And Ignore Error    Handle Alert    DISMISS
     ${ret}    Set Variable If    '${ret[0]}'=='${True}'    ${ret[1]}
                             ...    '${ret[0]}'=='${False}'  ${EMPTY}
-    [Return]    ${ret}
+    RETURN    ${ret}
     
 Alert Message Should Contain Text "${text}"
     Wait Until Alert(Confirm) Pop Up
@@ -366,7 +366,7 @@ Click "${xpath}" Element In Frame List "${frame list}"
 Get Window Count
     ${windows}=    Get Window Handles
     ${windowCount}=    Get Length    ${windows}
-    [Return]    ${windowCount}
+    RETURN    ${windowCount}
     
 #SELECT COMBO BOX
 Select "${xpath}" ComboBox By Label "${label}"
@@ -472,7 +472,7 @@ Kill Process "${processName}"
 #String
 Replace "${value1}" To "${value2}" In String "${value3}"
     ${ret}=    Replace String    ${value3}    ${value1}    ${value2}   
-    [Return]    ${ret}
+    RETURN    ${ret}
     
 Wait Until Page Ready
     Wait Until Keyword Succeeds    ${RetryKeywordsTimeout}    ${RetryKeywordsUnittime}    Is Page Ready    
@@ -528,13 +528,13 @@ Dynamic Element Attribute Value Should Contain
 Get Content Attribute Value From Dynamic Locator   
     [Arguments]    ${xpath}    @{ARGS}
     ${content_attribute_value}=    Get Value Attribute In Dynamic Element    content    ${xpath}    @{ARGS}
-    [Return]    ${content_attribute_value}
+    RETURN    ${content_attribute_value}
     
 
 Get Attribute From Dynamic Locator   
     [Arguments]    ${attribute_name}    ${xpath}    @{ARGS}
     ${attribute_value}=    Get Value Attribute In Dynamic Element    ${attribute_name}    ${xpath}    @{ARGS}
-    [Return]    ${attribute_value}
+    RETURN    ${attribute_value}
 
 Get Dynamic Element Count 
     [Arguments]    ${xpath}    @{ARGS}
@@ -544,7 +544,7 @@ Get Dynamic Element Count
     ${count}    Get Element Count    ${xpath}
     Set Selenium Implicit Wait    ${SELENIUM_LONG_IMPLICITWAIT}
     ${count}=    Convert To Integer    ${count}    
-    [Return]    ${count}
+    RETURN    ${count}
     
 Click To Element If Element Visible
     [Arguments]    ${xpath}    @{ARGS}
@@ -557,7 +557,7 @@ Page Source Contain
     Wait Until Page Ready
     ${source}=    Get Source
     ${status}=    Run Keyword And Return Status    Should Contain    ${source}    ${text}    
-    [Return]    ${status}
+    RETURN    ${status}
     
 Page Source Should Contain
     [Arguments]    ${text}
