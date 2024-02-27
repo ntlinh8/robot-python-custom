@@ -1,6 +1,6 @@
 *** Settings ***
 Library     BuiltIn
-Library     ../Topic_02_DependenceLibrary_Request/BestBuyAPI.py
+Library     BestBuyAPI.py
 *** Variables ***
 ${id}   ${EMPTY}
 &{product_information}             name=Samsung Electronic Firefrighter     type=machine       price=${350}    shipping=${20}   upc=AU   description=The best choise for every family    manufacturer=Teddy Bear    model=SS1   url=https://samsung.com/   image=firefrighter.png
@@ -48,4 +48,4 @@ Product 04 - Update The Product Information
     
 Product 05 - Delete The Product 
     Log To Console    Product 05 - Delete The Product 
-    Delete Product By Id    9999681
+    Delete Product By Id    ${id}

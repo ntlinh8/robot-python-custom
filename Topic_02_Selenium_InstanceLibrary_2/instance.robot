@@ -1,6 +1,6 @@
 *** Settings ***
 Library           SeleniumLibrary
-Library           ./GetSeleniumLibraryInstance.py
+Library           GetSeleniumLibraryInstance.py
 
 *** Test Cases ***
 Use InheritSeleniumLibrary Open Browser Keyword

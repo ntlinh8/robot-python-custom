@@ -1,7 +1,7 @@
 *** Settings ***
 Library     SeleniumLibrary
 Library     BuiltIn
-Library     ../Topic_02_Selenium_InstanceLibary_1/SortFunction.py
+Library     SortFunction.py
 Suite Setup     Run Keywords    Open Browser With "${URL}"      AND     Wait Until Page Ready
 Suite Teardown   Close All Browsers
 *** Variables ***

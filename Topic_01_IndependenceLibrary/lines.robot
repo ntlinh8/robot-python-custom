@@ -1,7 +1,7 @@
 *** Settings ***
 Library           OperatingSystem
 Resource          lines.resource
-#Library     ../Topic_01_IndependenceLibrary/lines.py
+#Library       lines.py
 
 *** Variables ***
 ${STRING}         SEPARATOR=\n
