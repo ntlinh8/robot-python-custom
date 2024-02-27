@@ -8,7 +8,7 @@ ${id}   ${EMPTY}
 *** Test Cases ***
 Product 01 - Get All Products Information
     Log To Console    Product 01 - Get All Products Information
-    ${all_product_information}=     Get All Products    
+    ${all_product_information}=     Get All Products
     Log To Console    ${all_product_information}[total]
 
 Product 02 - Create A New Product
@@ -46,6 +46,8 @@ Product 04 - Update The Product Information
     Should Be Equal    ${actual_information}[url]             ${updated_product_information}[url]
     Should Be Equal    ${actual_information}[image]           ${updated_product_information}[image]
     
-Product 05 - Delete The Product 
-    Log To Console    Product 05 - Delete The Product 
-    Delete Product By Id    ${id}
+Product 05 - Delete The Product
+    Log To Console    Product 05 - Delete The Product
+    ${status_code}=     Delete Product By Id    ${id}
+    Should Be Equal    ${status_code}    ${200}
+
