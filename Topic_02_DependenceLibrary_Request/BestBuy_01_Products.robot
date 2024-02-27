@@ -1,6 +1,8 @@
 *** Settings ***
 Library     BuiltIn
-Library     BestBuyAPI.py
+#Library     BestBuyAPI.py
+Library      BestBuyAPIClass.py     http://localhost:3030/products
+
 *** Variables ***
 ${id}   ${EMPTY}
 &{product_information}             name=Samsung Electronic Firefrighter     type=machine       price=${350}    shipping=${20}   upc=AU   description=The best choise for every family    manufacturer=Teddy Bear    model=SS1   url=https://samsung.com/   image=firefrighter.png
