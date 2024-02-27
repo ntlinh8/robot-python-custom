@@ -1,10 +1,11 @@
 There're 2 main way to implement library:
-1. Independent library: Based on standard libraries of Python 
+1. Independent library: 
+Based on standard libraries of Python 
 Eg: You can custom keywords to perform the complex logic with math library, read and verify the specific characteristics of file....
 It doesn't depend on any reference libraries in Robot layer. -> Easy to create with module and file, don't need consider about the class structure to make it complecated. That's it. 
 -------------------------------------------------------------------------
 
-2. Dependent Library. Based on other libraries of Python. But it can be devided into 2 types:
+2. Dependent Library. Based on other libraries of Python. But it can be divided into 2 types:
 -------------------------------------------------------------------------
 
 2.1. Libraries depend on the not running libraries in Robot layer (Request, HTTPS libraries)
