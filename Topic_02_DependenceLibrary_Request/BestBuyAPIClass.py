@@ -5,7 +5,7 @@ from robot.api.deco import library, keyword
 
 @library
 class BestBuyAPIClass:
-    def __init__(self, url):
+    def __init__(self, url="http://localhost:3030/"):
         self.base_url = url
         self.response = object
         self.current_session = requests.Session()
